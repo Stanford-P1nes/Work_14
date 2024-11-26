@@ -1,0 +1,141 @@
+:root {
+    --bg-active: #333;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    background-color: #333;
+}
+
+
+/* Стили для конетейнера */
+.container {
+    width: 250px;
+    background-color: #bdeded;
+    padding: 20px;
+    border: 4px solid var(--bg-active);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 2px 2px 20px black;
+}
+
+
+/* Стили для обертки текста */
+.wrapper-title {
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid var(--bg-active);
+    border-radius: 15px;
+}
+
+.wrapper-title.top {
+    margin-bottom: 10px;
+}
+
+
+
+/* Стили для текста */
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--bg-active);
+}
+
+.paragraph {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+/* Стили для списка */
+.list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: transparent;
+    list-style: none;
+    padding: 20px 0;
+    border: 2px solid var(--bg-active);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.list-item {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+/* Анимация андерлайна */
+
+.list-item.active-end::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--bg-active);
+    animation-name: underline-end;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes underline-end {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.list-item.active-start::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    width: 100%;
+    height: 4px;
+    background-color: var(--bg-active);
+    animation-name: underline-start;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes underline-start {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
